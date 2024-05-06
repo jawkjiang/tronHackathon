@@ -1,0 +1,56 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "iconfont"; /* Project id 4489614 */
+  src: url('//at.alicdn.com/t/c/font_4489614_522hckfo487.woff2?t=1711881909507') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4489614_522hckfo487.woff?t=1711881909507') format('woff'),
+       url('//at.alicdn.com/t/c/font_4489614_522hckfo487.ttf?t=1711881909507') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-zhixiang-you:before {
+  content: "\e76e";
+}
+
+.icon-gouwuchehuanshikongde:before {
+  content: "\e647";
+}
+
+.icon-shanchuanniu:before {
+  content: "\e608";
+}
+
+
+
+*{
+  -webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none;
+}
+
+.wallet-adapter-dropdown-list{
+  background: rgba(0,0,0,0.7)!important;
+}

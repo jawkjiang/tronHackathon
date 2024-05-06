@@ -1,0 +1,147 @@
+.container {
+  padding: 0 0;
+}
+
+.main {
+  min-height: 100vh;
+  padding:  0;
+}
+.home{
+  padding-top: 100px;
+}
+ /**header-content*/
+ .header-content{
+  margin: 50px auto 50px;
+  text-align: center;
+  .title{
+    font-size: 16px;
+  }
+  .sub-title{
+    font-size: 48px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  .desc{
+    font-size: 18px;
+  }
+}
+
+/**list*/
+.list{
+  display: flex;
+  width: 1312px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
+  
+}
+.list .item{
+  width: 304px;
+  height: 500px;
+  text-align: center;
+  margin-right: 30px;
+  position: relative;
+  z-index:1;
+  margin-bottom: 30px;
+}
+.list .item:nth-child(4n){
+  margin-right: 0;
+}
+
+.list .item .img{
+  width: 100%;
+  height: 304px;
+  text-align: center;
+ 
+}
+.list .item .img  img{
+  width: 100%;
+}
+.list .item .name{
+  font-size: 18px;
+  font-weight: bold;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 20px;
+}
+.list .item .sub-name{
+  font-size: 14px;
+  margin: 10px 16px 8px;
+  max-width: 100%;
+  /* overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; */
+  /* word-break: break-all;
+  -webkit-box-orient: vertical; */
+  height: 32px;
+}
+
+.list .item .price{
+  font-weight: bold;
+  font-size: 20px;
+  position: absolute;
+  bottom: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.list .item .cart-btn{
+  background: #8846D6;
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  transition: all 0.15s linear;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+  color: #fff;
+}
+.list .item .cart-btn:active{
+  opacity: 0.7;
+}
+
+.list .item .cart-btn-num{
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 100%;
+  background: #eee;
+  color: #8846D6!important;
+}
+
+/* .sendtocart  .cart-btn-num {
+  display: block;
+  animation: yAxis 2s ease-in-out forwards;
+  opacity: 1;
+} */
+
+/* @keyframes fly {
+    100%{
+      right: -100px;
+      top: -200px;
+      opacity: 0;
+    }
+} */
+
+/***more-btn*/
+.more-btn{
+  width: 140px;
+  padding: 10px 30px;
+  border:1px solid #000;
+  transition: all 0.15s linear;
+  margin: 30px auto;
+  cursor: pointer;
+}
+.more-btn:active{
+  opacity: 0.75;
+}
+
