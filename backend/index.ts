@@ -47,8 +47,8 @@ const tokenAddress = process.env.contractAddress as string;
 const tokenABI = JSON.parse(fs.readFileSync('data/ABI.json', 'utf-8'));
 const tokenContract = tronWeb.contract(tokenABI, tokenAddress);
 
-const goodsAddresses: Array<string> = await (async => {
-    let raw = await mainContract.getGoodsList.call();
+const goodsAddresses: Array<string> = await (async () => {
+    let raw = await mainContract.getGoodsList().call();
     return JSON.parse(raw);
 })();
 
@@ -122,13 +122,16 @@ app.get('/goods', async (req, res) => {
         else {
             const nfts: any[] = []; 
             for (let i = 1; i < goodsAddresses.length; i++) {
-                let goodsContract = tronWeb.contract(ABI, goodsAddresses[i]);
-                let raw = await goodsContract.getMetadata().call();
-                let parsed = JSON.parse(JSON.stringify(raw));
-                let perPrice = parseInt(parsed.price , 16) / Precision;
+                let goodsContract = tronWeb.contract(tokenABI, goodsAddresses[i]);
+                let metadata = await goodsContract.getMetadata().call();
+                let parsed = JSON.parse(JSON.stringify(metadata));
+                let price: Number = Number(await goodsContract.getPrice().call());
                 let nft = {
-                    NFTId: i,
-                    price: perPrice
+                    NFTId: i.toString().padStart(5, '0'),
+                    name: parsed.name,
+                    URL: parsed.image,
+                    price: price,
+                    description: parsed.description
                 };
                 nfts.push(nft);
                 
@@ -165,11 +168,10 @@ app.post('/routes', async (req, res) => {
             req.session.ETHQuantity = 10000;
             req.session.tokenQuantity = 1000;
         }
-        // 换成ts，使用anchor
         else {
             tokenPrice = 0.0001;
-            req.session.ETHQuantity = Number(await connection.eth.getBalance(req.session.userAddress)) / Precision;
-            req.session.tokenQuantity = Number(await contract.methods.balanceOf(req.session.userAddress).call());
+            req.session.ETHQuantity = Number(await tronWeb.trx.getBalance(req.session.userAddress)) / Precision;
+            req.session.tokenQuantity = Number(await tokenContract.balanceOf(req.session.userAddress).call());
         }
         
         let total = 0;
@@ -192,9 +194,8 @@ app.post('/routes', async (req, res) => {
             else {
                 // attention: the backend basically does not store the prices of NFTs, so fetch the price from the blockchain again
                 let index = parseInt(NFTId);
-                let raw = await program.account.price.fetch(pricePDAs[index]) as any;
-                let parsed = JSON.parse(JSON.stringify(raw));
-                let perPrice = parseInt(parsed.price , 16) / Precision;
+                let goodsContract = tronWeb.contract(tokenABI, goodsAddresses[index]);
+                let perPrice = Number(await goodsContract.getPrice().call());
                 price = perPrice * quantity;
             }
             total += price;
