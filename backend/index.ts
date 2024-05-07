@@ -32,12 +32,11 @@ app.use(cors());
 const port = 3000;
 dotenv.config();
 
-const HTTPProvider = TronWeb.providers.HTTPProvider;
-const fullNode = new HTTPProvider('https://api.shasta.trongrid.io');
-const solidityNode = new HTTPProvider('https://api.shasta.trongrid.io');
-const eventServer = 'https://api.shasta.trongrid.io';
-const privateKey = process.env.privateKey as string;
-const tronWeb = new TronWeb(fullNode, solidityNode, eventServer, privateKey);
+const tronWeb = new TronWeb({
+    fullHost: 'https://api.shasta.trongrid.io',
+    headers: { "TRON-PRO-API-KEY": "b234053e-bfdd-4378-a4b7-4fad7ec33e28" },
+    privateKey: '0x1' // dummy private key
+});
 
 const mainAddress = process.env.mainAddress as string;
 const mainABI = JSON.parse(fs.readFileSync('data/mainABI.json', 'utf-8'));
