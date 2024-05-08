@@ -19,9 +19,8 @@ Unlike previous attempts at engagement tokenization, METANA focuses on user-frie
 Since our inception, we have partnered with 13 stores, utilizing data from over 300,000 customers to refine our model. As we prepare for our public launch, our goal is to tokenize hundreds of products and rewards, mapping tens of thousands of transactions on the blockchain daily, making consumer reward trading open, efficient, and universally accessible.
 
 Discover more about how METANA is setting a new standard for customer engagement:
-- **Live Demo:** [Devnet Demo](https://metana.news/)
-- **Presentation:**
-- **Deck:** [Google Drive]
+- **Presentation:** [presentation](https://youtu.be/uBHjOmIgmEY)
+- **Deck:** [Google Drive](https://drive.google.com/file/d/1tfsJANi3FVxHJxUTsjnZjGJW57ovtk6g/view?usp=drive_link)
 -  **Twitter:** [@MetanaAI](https://twitter.com/MetanaAI)
 
 -  Join us in redefining customer engagement for the crypto age.
